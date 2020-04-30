@@ -1,0 +1,23 @@
+{
+  "name": "news-aggregator-pyramid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwind build tailwind.css -o news-aggregator/news_aggregator/static/tailwind.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singhkumarpratik/news-aggregator-pyramid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/singhkumarpratik/news-aggregator-pyramid/issues"
+  },
+  "homepage": "https://github.com/singhkumarpratik/news-aggregator-pyramid#readme",
+  "dependencies": {
+    "tailwindcss": "^1.4.0"
+  }
+}

@@ -27,16 +27,16 @@ def toi(request):
         news = {}
         if request.POST:
             print(request.POST.get("category"))
-            toiRequestWorld = requests.get(
+            toiRequest = requests.get(
                 "https://timesofindia.indiatimes.com/briefs/"
                 + request.POST.get("category")
             )
 
         else:
-            toiRequestWorld = requests.get(
+            toiRequest = requests.get(
                 "https://timesofindia.indiatimes.com/briefs/world"
             )
-        soup = BeautifulSoup(toiRequestWorld.content, "html.parser")
+        soup = BeautifulSoup(toiRequest.content, "html.parser")
         # headings = soup.find("div", {"class": "briefs_outer clearfix"})
         allDetails = soup.find_all("div", {"class": "brief_box"})
         for i in allDetails:

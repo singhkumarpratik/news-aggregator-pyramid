@@ -1,4 +1,0 @@
-#!/bin/bash
-set -e
-python news-aggregator/setup.py develop
-python news-aggregator/runapp.py

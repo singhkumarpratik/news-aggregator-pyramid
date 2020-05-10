@@ -1,23 +1,49 @@
 {% extends "base.jinja2" %}
-  <h1 class="text-2xl text-gray-100">{{paperName}}</h1>
-  {% block content%}
-    <div class="lg:h-40">
-    {% for i,j in toi_news.items() %}
-      <div class="shadow-lg rounded-lg bg-gray-800 mx-auto m-4 p-4 w-auto h-full">
-          <div class="font-semibold text-xl pb-2 justify-center text-white">{{i}}
-            <span class="float-right w-40 ml-4"><img src="{{j[0]}}"></span>
-          </div>
-          <div class="text-sm text-white tracking-tight ">{{j[1]}}</div>
-          <a href="https://timesofindia.indiatimes.com/india/{{j[2]}}" target="_blank" class="hover:bg-indigo-600 inline-block bg-indigo-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2 mt-2">Know More &rarr;</a>
+{% block content%}
+<div class="lg:h-40 mx-4">
+  <h1 class="text-2xl text-gray-100 mb-2">Select Category</h1>
+  <form action="" method="POST">
+    <div class="inline-block relative">
+
+      {% if paperName== 'Times of India' %}
+      <select
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        name="category">
+        {% for key, value in toiCategories.items() %}
+        <option value="{{key}}">{{value}}</option>
+        {% endfor %}
+      </select>
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
       </div>
-    {% endfor %}
+      {% else%}
+      hhhas
+      {% endif %}
     </div>
+    <div class="inline-block relative ml-2">
+      <input type="submit" value="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    </div>
+  </form>
+  {% for i,j in news.items() %}
+  <div class="shadow-lg rounded-lg bg-gray-800 mx-auto m-4 p-4 w-auto h-full">
+    <div class="font-semibold text-xl pb-2 justify-center text-white">{{i}}
+      <span class="float-right w-40 ml-4"><img src="{{j[0]}}"></span>
+    </div>
+    <div class="text-sm text-white tracking-tight ">{{j[1]}}</div>
+    <a href="https://timesofindia.indiatimes.com/india/{{j[2]}}" target="_blank"
+      class="hover:bg-indigo-600 inline-block bg-indigo-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2 mt-2 mb-1">Know
+      More &rarr;</a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock content %}
 
 {%block scriptContent %}
 function myFunction() {
-  var x = document.getElementById("divx");
-  x.classList.toggle("hidden");
-  console.log("hello");
+var x = document.getElementById("divx");
+x.classList.toggle("hidden");
+console.log("hello");
 }
 {%endblock scriptContent %}

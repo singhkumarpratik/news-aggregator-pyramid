@@ -1,0 +1,14 @@
+{% extends "base.jinja2" %}
+{% block content%}
+<div class="lg:h-40 mx-4">
+  <h1 class="text-2xl text-gray-100">{{paperName}}</h1>
+</div>
+{% endblock content %}
+
+{%block scriptContent %}
+function myFunction() {
+var x = document.getElementById("divx");
+x.classList.toggle("hidden");
+console.log("hello");
+}
+{%endblock scriptContent %}

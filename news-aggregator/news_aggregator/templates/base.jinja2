@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Aggregator</title>
+    <title>{{paperName}} | News Aggregator</title>
     <!-- Tailwindcss -->
     <link href="{{request.static_url('news_aggregator:static/tailwind.css')}}" rel="stylesheet">
 </head>
 <body class="bg-gray-900">
     <!-- Navbar -->
-    <nav class="flex items-center justify-between flex-wrap bg-gray-700 p-2">
+    <nav class="flex items-center justify-between flex-wrap bg-gray-700 p-2 mb-8">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
         <a href="{{request.application_url}}" class="font-semibold text-xl tracking-tight">News Aggregator</a>
     </div>
@@ -18,7 +18,7 @@
         <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
         </button>
     </div>
-    <div id ="divx" class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
+    <!-- <div id ="divx" class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
         <a href="{{request.application_url}}/paper/toi" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">
             Times of India
@@ -29,6 +29,15 @@
         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white">
             Blog
         </a>
+        </div> -->
+    <div id ="divx" class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+            {% for key, value in papers.items() %}
+                <a href="{{request.application_url}}/paper/{{key}}"
+                class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">
+                {{value}}
+                </a>
+            {% endfor %}
         </div>
     </div>
     </nav>
